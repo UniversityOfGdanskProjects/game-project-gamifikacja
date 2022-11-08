@@ -2,7 +2,7 @@ import React from 'react';
 import Snake from "./components/Snake";
 import Food from './components/Food';
 import {useEffect, useRef} from 'react';
-
+import { useState } from 'react';
 
 const getRandomCoordinates = () => {
   let min = 1;
@@ -13,53 +13,73 @@ const getRandomCoordinates = () => {
 }
 
 function App() {
-  let state = {
+  const [state, setState] = useState({
     snakeDots: [
       [0,0],
       [2,0]
     ],
     food: getRandomCoordinates(),
     direction: 'RIGHT'
-  }
+  })
 
   const handleKeyDown = event => {
     console.log('User pressed: ', event.key);
+    switch(event.key){
+      case 'w':
+        setState(prevState => {
+          return ({
+            snakeDots: [
+              [0,0],
+              [2,0]
+            ],
+            food: prevState.food,
+            direction: 'UP'
+          })
+        })
+        break;
+      case 's':
+        setState(prevState =>{
+          return ({
+            snakeDots: [
+              [0,0],
+              [2,0]
+            ],
+            food: prevState.food,
+            direction: 'DOWN'
+          })
+        })
+        break;
+      case 'd':
+        setState(prevState =>{
+          return ({
+            snakeDots: [
+              [0,0],
+              [2,0]
+            ],
+            food: prevState.food,
+            direction: 'RIGHT'
+          })
+        })
+        break;
+      case 'a':
+        setState(prevState =>{
+          return ({
+            snakeDots: [
+              [0,0],
+              [2,0]
+            ],
+            food: prevState.food,
+            direction: 'LEFT'
+          })
+        })
+        break;
+
+    }
   };
   const ref = useRef(null);
   useEffect(() => {
     ref.current.focus();
   }, []);
-
-// function componentDidMount(){
-//   document.onkeydown = this.onKeyDown
-// }
-
-// function onKeyDown(e) {
-//   e = e || window.event;
-//   switch (e.keyCode) {
-//     case 38:
-//       if (!["UP", "DOWN"].includes(this.state.direction)) {
-//         this.setState({ direction: "UP" });
-//       }
-//       break;
-//     case 40:
-//       if (!["UP", "DOWN"].includes(this.state.direction)) {
-//         this.setState({ direction: "DOWN" });
-//       }
-//       break;
-//     case 37:
-//       if (!["LEFT", "RIGHT"].includes(this.state.direction)) {
-//         this.setState({ direction: "LEFT" });
-//       }
-//       break;
-//     case 39:
-//       if (!["LEFT", "RIGHT"].includes(this.state.direction)) {
-//         this.setState({ direction: "RIGHT" });
-//       }
-//       break;
-//   }
-// };
-
 
   return (
     <div className="game-area" ref={ref} tabIndex={-1} onKeyDown={handleKeyDown}>
