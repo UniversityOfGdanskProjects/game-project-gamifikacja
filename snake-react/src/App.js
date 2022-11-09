@@ -29,8 +29,8 @@ function App() {
         setState(prevState => {
           return ({
             snakeDots: [
-              [0,0],
-              [2,0]
+              [prevState.snakeDots[0][0],prevState.snakeDots[0][1]-1],
+              [prevState.snakeDots[1][0],prevState.snakeDots[1][1]-1]
             ],
             food: prevState.food,
             direction: 'UP'
@@ -41,8 +41,8 @@ function App() {
         setState(prevState =>{
           return ({
             snakeDots: [
-              [0,0],
-              [2,0]
+              [prevState.snakeDots[0][0],prevState.snakeDots[0][1]+1],
+              [prevState.snakeDots[1][0],prevState.snakeDots[1][1]+1]
             ],
             food: prevState.food,
             direction: 'DOWN'
@@ -53,8 +53,8 @@ function App() {
         setState(prevState =>{
           return ({
             snakeDots: [
-              [0,0],
-              [2,0]
+              [prevState.snakeDots[0][0]+1,prevState.snakeDots[0][1]],
+              [prevState.snakeDots[1][0]+1,prevState.snakeDots[1][1]]
             ],
             food: prevState.food,
             direction: 'RIGHT'
@@ -65,8 +65,8 @@ function App() {
         setState(prevState =>{
           return ({
             snakeDots: [
-              [0,0],
-              [2,0]
+              [prevState.snakeDots[0][0]-1,prevState.snakeDots[0][1]],
+              [prevState.snakeDots[1][0]-1,prevState.snakeDots[1][1]]
             ],
             food: prevState.food,
             direction: 'LEFT'
