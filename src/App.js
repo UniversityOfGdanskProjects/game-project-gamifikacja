@@ -18,7 +18,7 @@ const App = () => {
         </div>
         <Actions actions={actions} setActions={setActions}/>
       </div>
-    </div>
+     </div>
   );
 };
 
