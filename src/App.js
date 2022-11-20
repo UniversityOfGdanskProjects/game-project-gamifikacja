@@ -11,7 +11,7 @@ const App = () => {
 
   useEffect(()=> {
     setArrows(arrows.slice(1))
-  },[coords, arrows])
+  },[coords])
   
   return (
     <div className='ui'>
