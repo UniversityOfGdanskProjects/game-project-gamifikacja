@@ -1,16 +1,17 @@
-.body{
-    margin: 0;
+body{
+    margin: 1rem;
 }
-.game{
-    margin: 0;
+.ui{
     display: inline-flex;
 }
 .panel{
+    margin-right: 1rem;
+    margin-left: 1rem;
     background-color: lightslategray;
     border: 0.5rem solid lightslategray;
-    border-radius: 1rem;
+    border-radius: 2rem;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-    padding: 1rem;
+    padding: 2rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -76,4 +77,10 @@ button:active{
 #right{
     grid-column: 3;
     grid-row: 2;
+}
+canvas{
+    background-color:whitesmoke;
+    border: 0.75rem solid grey;
+    border-radius: 2rem;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
