@@ -2,10 +2,10 @@ import React, {useRef,useEffect} from 'react';
 import map_png from '../Images/map_png.png'
 import OverworldMap from './GameClasses/OverworldMap'
 import Person from './GameClasses/Person'
+
 const Canvas = ({coords, setCoords,arrows}) => {
 
     const canvasRef = useRef(null)
-
 
     const map = new OverworldMap({
         gameObjects: {
@@ -17,11 +17,6 @@ const Canvas = ({coords, setCoords,arrows}) => {
         },
         src: map_png
     })
-
-
-
-    
-
     
     
     useEffect( () => {
@@ -37,6 +32,7 @@ const Canvas = ({coords, setCoords,arrows}) => {
     },[])
     
     return <canvas ref={canvasRef}/>
+
 
 };
 

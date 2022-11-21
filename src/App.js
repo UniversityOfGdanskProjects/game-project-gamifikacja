@@ -9,9 +9,11 @@ const App = () => {
   const [actions, setActions] = useState([])
   const [coords, setCoords] = useState([100,100])
 
+
   // useEffect(()=> {
   //   setArrows(arrows.slice(1))
   // },[])
+
   
   return (
     <div className='ui'>
