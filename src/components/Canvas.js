@@ -22,13 +22,9 @@ const Canvas = ({coords, setCoords,arrows}) => {
     useEffect( () => {
         const canvas = canvasRef.current
         const ctx = canvas.getContext("2d")
-        canvas.width = 1400
-        canvas.height = 700
-
+        canvas.width = window.innerWidth
+        canvas.height = window.innerHeight
         map.render(ctx)
-        
-       
-      
     },[])
     
     return <canvas ref={canvasRef}/>

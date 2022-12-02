@@ -1,11 +1,30 @@
 body{
-    margin: 1rem;
+    margin: 0;
+}
+#root{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .ui{
-    display: inline-flex;
+    width: 90%;
+    height: 90%;
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}
+.canvas{
+    width: 90%;
+}
+canvas{
+    width: 100%;
+    height: 100%;
+    background-color:whitesmoke;
+    border-radius: 2rem;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 .panel{
-    margin-right: 1rem;
     margin-left: 1rem;
     background-color: lightslategray;
     border: 0.5rem solid lightslategray;
@@ -18,7 +37,6 @@ body{
     gap: 2rem;
 }
 .controls{
-    border: 0.7rem solid darkslategray;
     background-color: rgb(156, 171, 186);
     border-radius: 10rem;
 }
@@ -31,23 +49,22 @@ body{
 .actions{
     display: flex;
     justify-content: space-evenly;
-    border: 0.7rem solid darkslategray;
     background-color: rgb(156, 171, 186);
     border-radius: 5rem;
 }
 .letters{
     margin: 1rem;
     font-family: Arial, Helvetica, sans-serif;
-    border: 0.5rem solid lightslategrey;
+    border: 0.3rem solid slategray;
     border-radius: 50%;
     color: whitesmoke;
-    background-color: darkslategray;
+    background-color: darkslategrey;
     font-size: 3.5rem;
     width: 5.5rem;
     height: 5.5rem;
 }
 .arrows{
-    border: 0.5rem solid lightslategrey;
+    border: 0.3rem solid slategray;
     border-radius: 3rem;
     color: whitesmoke;
     background-color: darkslategray;
@@ -56,6 +73,7 @@ body{
 }
 button:hover{
     background-color: rgb(39, 59, 59);
+    cursor: pointer;
 }
 button:active{
     color: grey;
@@ -78,9 +96,92 @@ button:active{
     grid-column: 3;
     grid-row: 2;
 }
-canvas{
-    background-color:whitesmoke;
-    border: 0.75rem solid grey;
-    border-radius: 2rem;
+
+.form{
+    background-color: lightslategray;
+    border: 0.5rem solid lightslategray;
+    border-radius: 1rem;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 1rem;
+    font-family: Arial, Helvetica, sans-serif;
+    scale: 1.5;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+label{
+    color: white;
+    font-weight: bold;
+}
+input{
+    border: 0.1rem solid whitesmoke;
+    color: rgb(129, 129, 129) ;
+    border-radius: 0.5rem;
+    font-size: 1.2rem;
+    font-family: Arial, Helvetica, sans-serif;
+}
+h1{
+    color: whitesmoke;
+    margin: 0;
+}
+.error{
+    background-color: rgb(247, 94, 77);
+    border: 0.2rem solid rgb(247, 94, 77);
+    color: whitesmoke;
+    border-radius: 0.5rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+
+}
+.loginButton{
+    background-color: darkslategray;
+    border: 0.2rem solid lightslategrey;
+    color: whitesmoke;
+    border-radius: 1.5rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.lds-facebook {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+    scale: 2.5;
+  }
+  .lds-facebook div {
+    display: inline-block;
+    position: absolute;
+    left: 8px;
+    width: 16px;
+    border-radius: 5px;
+    background: slategray;
+    animation: lds-facebook 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+  }
+  .lds-facebook div:nth-child(1) {
+    left: 8px;
+    animation-delay: -0.24s;
+  }
+  .lds-facebook div:nth-child(2) {
+    left: 32px;
+    animation-delay: -0.12s;
+  }
+  .lds-facebook div:nth-child(3) {
+    left: 56px;
+    animation-delay: 0;
+  }
+  @keyframes lds-facebook {
+    0% {
+      top: 8px;
+      height: 64px;
+    }
+    50%, 100% {
+      top: 24px;
+      height: 32px;
+    }
 }
