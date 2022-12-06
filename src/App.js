@@ -9,7 +9,7 @@ import Loading from './components/Loading';
 
 const App = () => {
 
-  const [arrows, setArrows] = useState([])
+  const [arrows, setArrows] = useState(["dwloa"])
   const [actions, setActions] = useState([])
   const [coords, setCoords] = useState([100,100])
   const [isUser, setIsUser] = useState(false)
@@ -35,7 +35,7 @@ const App = () => {
             </div>
             <div className='panel'>
               <div className='controls'>
-                <Controls arrows={arrows} setArrows={setArrows}/>
+                <Controls arrows={arrows} setArrows={setArrows} setCoords={setCoords} coords={coords}/>
               </div>
               <Actions actions={actions} setActions={setActions}/>
             </div>

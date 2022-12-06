@@ -9,13 +9,16 @@ class OverworldMap {
     }
 
     render(ctx) {
+
+
         this.image.onload = () => {     //THIS IS ASYNC
+
             ctx.drawImage(this.image, 0, 0)
-            console.log("załadowana mapa")
+            // console.log("załadowana mapa")
             Object.values(this.gameObjects).forEach(obj => obj.draw(ctx))
         }
-        console.log("probuje zaladowac mape:")
-        console.log("laduje typa")
+        // console.log("probuje zaladowac mape:")
+        // console.log("laduje typa")
     }
 
 }

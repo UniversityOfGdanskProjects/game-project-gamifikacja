@@ -14,7 +14,7 @@ class GameObject {
 
     draw(ctx) {
 
-        console.log(this.image.src)
+        // console.log(this.image.src)
         ctx.drawImage(this.image,
             0,0,
             this.image.width / 4,this.image.height,
