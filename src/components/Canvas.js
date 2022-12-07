@@ -11,8 +11,8 @@ const Canvas = ({coords, setCoords,arrows, setArrows}) => {
     const map = new OverworldMap({
         gameObjects: {
             hero: new Person({
-                x: 670,
-                y: 600,
+                x: coords[0],
+                y: coords[1],
                 isPlayerControlled: true
             })
         },
@@ -22,24 +22,25 @@ const Canvas = ({coords, setCoords,arrows, setArrows}) => {
     const startGameLoop = (ctx,canvas) => {       
         const step = (ctx,canvas) => {
             console.log("render")
-            
+            console.log(arrows)
             // ctx.clearRect(0, 0, canvas.width/2, canvas.height);
             
             // ctx.clearRect(0, 0, canvas.width, canvas.height);
             const direction = arrows[arrows.length - 1]
             if (direction === "ArrowUp"){
-                map.gameObjects.hero.y -= 100;
+                // map.gameObjects.hero.y -= 100;
+                setCoords([coords[0]-100,coords[1]])
+                setArrows([])
                 console.log(map.gameObjects.hero.y)
                 console.log(arrows)
                 // setArrows([])
             }
-            map.render(ctx); // map  init
-          
-          
+            
+            
             requestAnimationFrame( () => { //its gonna execute every frame
                 step(ctx,canvas);
             })
-
+            
         }
         step(ctx,canvas);
     }
@@ -49,24 +50,34 @@ const Canvas = ({coords, setCoords,arrows, setArrows}) => {
         const ctx = canvas.getContext("2d")
         canvas.width = window.innerWidth
         canvas.height = window.innerHeight
-       
-        // if (direction === "ArrowDown"){
-        //     if (y + r + dy<= maxY) setCoords([x, y+dy])
-        //     else setCoords([x,y])
-        // }
-        // if (direction === "ArrowRight"){
-        //     if (x + r + dx <= maxX) setCoords([x+dx, y])
-        //     else setCoords([x,y])
-        // }
-        // if (direction === "ArrowLeft"){
-        //     if (x - r - dx >= 0) setCoords([x-dx, y])
-        //     else setCoords([x,y])
-        // }
+        const direction = arrows[arrows.length - 1]
         
-        startGameLoop(ctx,canvas);
+        if (direction === "ArrowUp"){
+            // map.gameObjects.hero.y -= 100;
+            setCoords([coords[0],coords[1]-100])
+            setArrows([])
+            console.log(map.gameObjects.hero.y)
+            console.log(arrows)
+            // setArrows([])
+        }
+        if (direction === "ArrowDown"){
+            setCoords([coords[0],coords[1]+100])
+            setArrows([])
+        }
+        if (direction === "ArrowRight"){
+            setCoords([coords[0]+100,coords[1]])
+            setArrows([])
+        }
+        if (direction === "ArrowLeft"){
+            setCoords([coords[0]-100,coords[1]])
+            setArrows([])
+        }
+        map.render(ctx); // map  init
+        
+        // startGameLoop(ctx,canvas);
         // console.log("boba")
         // console.log("render")
-    },[])
+    },[arrows])
     
     return <canvas ref={canvasRef}/>
 
